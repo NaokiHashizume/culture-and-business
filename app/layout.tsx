@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const geist = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-sans",
   subsets: ["latin"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -32,20 +39,13 @@ export const metadata: Metadata = {
     title: "Culture & Business",
     description: "歴史と美術の知恵をビジネスに活かす。",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja" className={`${geist.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-[#fafaf8] antialiased">
+    <html lang="ja" className={`${geist.variable} ${playfair.variable} h-full`}>
+      <body className="min-h-full flex flex-col bg-[#fafaf8] antialiased font-sans">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
