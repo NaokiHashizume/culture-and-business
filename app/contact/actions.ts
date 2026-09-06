@@ -1,6 +1,6 @@
 "use server";
 
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 export type ContactState = {
   status: "idle" | "success" | "error";
@@ -20,10 +20,11 @@ export async function sendContact(
     return { status: "error", message: "すべての項目を入力してください。" };
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailPass = process.env.GMAIL_APP_PASSWORD;
   const toEmail = process.env.CONTACT_TO_EMAIL;
 
-  if (!apiKey || !toEmail) {
+  if (!gmailUser || !gmailPass || !toEmail) {
     return {
       status: "error",
       message: "メール設定が完了していません。管理者にお知らせください。",
@@ -31,9 +32,16 @@ export async function sendContact(
   }
 
   try {
-    const resend = new Resend(apiKey);
-    await resend.emails.send({
-      from: "Culture & Business <onboarding@resend.dev>",
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: gmailUser,
+        pass: gmailPass,
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"Culture & Business" <${gmailUser}>`,
       to: toEmail,
       replyTo: email,
       subject: `[Culture & Business] ${subject}`,
@@ -45,6 +53,7 @@ export async function sendContact(
         <p style="white-space:pre-wrap">${message.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p>
       `,
     });
+
     return { status: "success", message: "送信しました。2〜3営業日以内にご返信いたします。" };
   } catch {
     return { status: "error", message: "送信に失敗しました。時間をおいて再度お試しください。" };
