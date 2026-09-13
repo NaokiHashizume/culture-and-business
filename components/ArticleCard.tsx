@@ -17,7 +17,7 @@ export default function ArticleCard({ article, variant = "default" }: Props) {
   if (variant === "featured") {
     return (
       <Link href={`/articles/${article.slug}`} className="group block">
-        <article className="hero-pattern relative overflow-hidden text-white flex flex-col justify-end min-h-[420px] sm:min-h-[580px]">
+        <article className="hero-pattern relative overflow-hidden text-white flex flex-col justify-end min-h-[380px] sm:min-h-[480px]">
 
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent z-10" />
@@ -34,7 +34,7 @@ export default function ArticleCard({ article, variant = "default" }: Props) {
           {/* Content */}
           <div className="relative z-20 px-8 sm:px-14 pb-10 sm:pb-14 max-w-5xl">
             <div className="flex items-center gap-3 mb-5">
-              <span className="font-display text-[10px] tracking-[0.3em] px-3 py-1.5 text-white" style={{ background: "var(--brand)" }}>
+              <span className="font-display text-[10px] tracking-[0.3em] px-3 py-1.5" style={{ background: "var(--brand)", color: "var(--background)" }}>
                 {article.category}
               </span>
               {article.tags.slice(0, 2).map((tag) => (
@@ -44,11 +44,11 @@ export default function ArticleCard({ article, variant = "default" }: Props) {
               ))}
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] mb-5 transition-colors duration-300 group-hover:text-[#E8DDD0]">
+            <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] mb-4 transition-colors duration-300 group-hover:text-[#E8DDD0]">
               {article.title}
             </h1>
 
-            <p className="text-white/50 text-sm sm:text-base line-clamp-2 max-w-2xl mb-8 leading-relaxed">
+            <p className="text-white/50 text-sm sm:text-base line-clamp-2 max-w-2xl mb-6 leading-relaxed">
               {article.excerpt}
             </p>
 
@@ -94,7 +94,7 @@ export default function ArticleCard({ article, variant = "default" }: Props) {
   /* ── Default ────────────────────────────────────────────── */
   return (
     <Link href={`/articles/${article.slug}`} className="group block">
-      <article className="py-7 border-b" style={{ borderColor: "var(--border-soft)" }}>
+      <article className="py-5 border-b" style={{ borderColor: "var(--border-soft)" }}>
         <div className="flex gap-5">
 
           {/* Left accent bar — grows on hover */}
@@ -106,7 +106,7 @@ export default function ArticleCard({ article, variant = "default" }: Props) {
           {/* Content */}
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-3 mb-2.5">
-              <span className="font-display text-[9px] tracking-[0.25em] px-2 py-0.5 text-white" style={{ background: "var(--brand)" }}>
+              <span className="font-display text-[9px] tracking-[0.25em] px-2 py-0.5" style={{ background: "var(--brand)", color: "var(--background)" }}>
                 {article.category}
               </span>
               <time className="font-display text-[9px] tracking-wider" style={{ color: "var(--muted)" }} dateTime={article.date}>

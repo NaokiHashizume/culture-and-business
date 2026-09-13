@@ -43,19 +43,19 @@ export default function Header() {
 
       {/* Masthead */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-4 gap-6">
+        <div className="flex items-center justify-between py-3 gap-6">
 
           {/* Logo */}
           <Link href="/" className="group flex-shrink-0">
             <div className="leading-tight">
               <div className="font-serif">
-                <span className="text-[2rem] sm:text-[2.6rem] font-bold" style={{ color: "var(--foreground)", letterSpacing: "-0.01em" }}>
+                <span className="text-[1.7rem] sm:text-[2.2rem] font-bold" style={{ color: "var(--foreground)", letterSpacing: "-0.01em" }}>
                   CULTURE
                 </span>
-                <span className="text-[2rem] sm:text-[2.6rem] font-light mx-1.5" style={{ color: "var(--brand)" }}>
+                <span className="text-[1.7rem] sm:text-[2.2rem] font-light mx-1.5" style={{ color: "var(--brand)" }}>
                   &amp;
                 </span>
-                <span className="text-[2rem] sm:text-[2.6rem] font-bold" style={{ color: "var(--foreground)", letterSpacing: "-0.01em" }}>
+                <span className="text-[1.7rem] sm:text-[2.2rem] font-bold" style={{ color: "var(--foreground)", letterSpacing: "-0.01em" }}>
                   BUSINESS
                 </span>
               </div>

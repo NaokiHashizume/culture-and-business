@@ -9,7 +9,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return getAllCategories().map((c) => ({ category: encodeURIComponent(c) }));
+  return getAllCategories().map((c) => ({ category: c }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -30,22 +30,24 @@ export default async function CategoryPage({ params }: Props) {
   if (articles.length === 0) notFound();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Header */}
-      <div className="mb-10">
-        <nav className="text-xs text-stone-400 mb-4 flex items-center gap-1.5">
-          <Link href="/" className="hover:text-amber-700 transition-colors">ホーム</Link>
-          <span>/</span>
-          <Link href="/articles" className="hover:text-amber-700 transition-colors">記事一覧</Link>
-          <span>/</span>
-          <span className="text-stone-600">{decoded}</span>
+      <div className="page-header">
+        <nav className="text-xs mb-3 flex items-center gap-1.5 text-muted-var">
+          <Link href="/" className="hover-text-brand transition-colors">ホーム</Link>
+          <span style={{ color: "var(--border-soft)" }}>/</span>
+          <Link href="/articles" className="hover-text-brand transition-colors">記事一覧</Link>
+          <span style={{ color: "var(--border-soft)" }}>/</span>
+          <span className="text-fg">{decoded}</span>
         </nav>
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700 mb-2">Category</p>
-        <h1 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-2">{decoded}</h1>
-        <p className="text-stone-400 text-sm">{articles.length} 件の記事</p>
+        <p className="page-eyebrow">CATEGORY</p>
+        <div className="flex items-end justify-between flex-wrap gap-2">
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-fg">{decoded}</h1>
+          <p className="font-display text-[10px] tracking-[0.2em] text-muted-var">{articles.length} ARTICLES</p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
         {/* Articles */}
         <div className="lg:col-span-3">
           {articles.map((a) => (
@@ -56,19 +58,16 @@ export default async function CategoryPage({ params }: Props) {
         {/* Sidebar: other categories */}
         <aside>
           <div className="sticky top-24">
-            <h2 className="font-serif text-base font-bold text-stone-900 pb-2 mb-4 border-b-2 border-amber-600">
-              カテゴリ一覧
-            </h2>
-            <ul className="space-y-1">
+            <div className="flex items-center gap-3 pb-3 mb-1" style={{ borderBottom: "2px solid var(--brand)" }}>
+              <span className="inline-block w-3 h-px" style={{ background: "var(--muted)" }} />
+              <h2 className="font-display text-[10px] tracking-[0.28em] text-fg">カテゴリ一覧</h2>
+            </div>
+            <ul>
               {allCategories.map((cat) => (
                 <li key={cat}>
                   <Link href={`/categories/${encodeURIComponent(cat)}`}
-                    className={`flex items-center gap-2 text-sm py-1.5 transition-colors group ${
-                      cat === decoded ? "text-amber-700 font-semibold" : "text-stone-600 hover:text-amber-700"
-                    }`}>
-                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${
-                      cat === decoded ? "bg-amber-500" : "bg-stone-300 group-hover:bg-amber-500"
-                    }`} />
+                    className={`sidebar-cat-link ${cat === decoded ? "active" : ""}`}>
+                    <span className="cat-line" />
                     {cat}
                   </Link>
                 </li>

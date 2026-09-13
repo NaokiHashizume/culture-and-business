@@ -57,43 +57,43 @@ export default async function ArticlePage({ params }: Props) {
   const articleUrl = `${siteUrl}/articles/${slug}`;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-9">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-14">
 
         {/* Article body */}
         <article className="lg:col-span-3 min-w-0">
           {/* Breadcrumb */}
-          <nav className="text-xs text-stone-400 mb-8 flex items-center gap-1.5 flex-wrap">
-            <Link href="/" className="hover:text-amber-700 transition-colors">ホーム</Link>
-            <span className="text-stone-300">/</span>
-            <Link href="/articles" className="hover:text-amber-700 transition-colors">記事一覧</Link>
-            <span className="text-stone-300">/</span>
-            <Link href={`/categories/${encodeURIComponent(article.category)}`} className="hover:text-amber-700 transition-colors">
+          <nav className="text-xs mb-6 flex items-center gap-1.5 flex-wrap text-muted-var">
+            <Link href="/" className="hover-text-brand transition-colors">ホーム</Link>
+            <span style={{ color: "var(--border-soft)" }}>/</span>
+            <Link href="/articles" className="hover-text-brand transition-colors">記事一覧</Link>
+            <span style={{ color: "var(--border-soft)" }}>/</span>
+            <Link href={`/categories/${encodeURIComponent(article.category)}`} className="hover-text-brand transition-colors">
               {article.category}
             </Link>
           </nav>
 
           {/* Article header */}
-          <header className="mb-10 pb-8 border-b border-stone-200">
-            <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 mb-5">
+          <header className="mb-8 pb-6" style={{ borderBottom: "1px solid var(--border-soft)" }}>
+            <span className="inline-block font-display text-[10px] tracking-[0.25em] px-3 py-1.5 mb-4" style={{ background: "var(--brand)", color: "var(--background)" }}>
               {article.category}
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 leading-tight mb-5">
+            <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-4 text-fg">
               {article.title}
             </h1>
-            <p className="text-stone-500 text-lg leading-relaxed mb-5 border-l-4 border-stone-200 pl-4">
+            <p className="text-base leading-relaxed mb-4 pl-4" style={{ color: "var(--muted)", borderLeft: "3px solid var(--gold)" }}>
               {article.excerpt}
             </p>
-            <div className="flex flex-wrap items-center gap-3 text-xs text-stone-400">
-              <time dateTime={article.date} className="font-medium">{formattedDate}</time>
-              <span className="w-1 h-1 rounded-full bg-stone-300" aria-hidden="true" />
+            <div className="flex flex-wrap items-center gap-3 font-display text-[10px] tracking-wider text-muted-var">
+              <time dateTime={article.date}>{formattedDate}</time>
+              <span aria-hidden="true">·</span>
               <span>{article.readingTime}で読める</span>
               {article.tags.length > 0 && (
                 <>
-                  <span className="w-1 h-1 rounded-full bg-stone-300" aria-hidden="true" />
+                  <span aria-hidden="true">·</span>
                   <div className="flex flex-wrap gap-1.5">
                     {article.tags.map((tag) => (
-                      <span key={tag} className="border border-stone-200 px-2 py-0.5 rounded-sm">#{tag}</span>
+                      <span key={tag} className="border px-2 py-0.5" style={{ borderColor: "var(--border-soft)" }}>#{tag}</span>
                     ))}
                   </div>
                 </>
@@ -107,9 +107,9 @@ export default async function ArticlePage({ params }: Props) {
           </div>
 
           {/* Footer: share + nav */}
-          <div className="mt-12 pt-8 border-t border-stone-200 flex items-center justify-between flex-wrap gap-4">
+          <div className="mt-10 pt-6 flex items-center justify-between flex-wrap gap-4" style={{ borderTop: "1px solid var(--border-soft)" }}>
             <ShareButtons title={article.title} url={articleUrl} />
-            <Link href="/articles" className="text-sm text-stone-400 hover:text-amber-700 transition-colors">
+            <Link href="/articles" className="nav-link">
               ← 記事一覧へ戻る
             </Link>
           </div>
@@ -119,30 +119,35 @@ export default async function ArticlePage({ params }: Props) {
         <aside className="space-y-8">
           <div className="sticky top-24 space-y-8">
             {/* Share */}
-            <div className="border border-stone-200 p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-stone-400 mb-4">Share</p>
+            <div className="p-5" style={{ border: "1px solid var(--border-soft)" }}>
+              <p className="font-display text-[9px] tracking-[0.32em] mb-4 text-muted-var">SHARE</p>
               <ShareButtons title={article.title} url={articleUrl} />
             </div>
 
             {/* Related/Recent articles */}
             <div>
-              <h3 className="font-serif text-base font-bold text-stone-900 pb-2 mb-1 border-b-2 border-amber-600">
-                {related.length > 0 ? "関連記事" : "最新記事"}
-              </h3>
+              <div className="flex items-center gap-3 pb-3 mb-1" style={{ borderBottom: "2px solid var(--brand)" }}>
+                <span className="inline-block w-3 h-px" style={{ background: "var(--muted)" }} />
+                <h3 className="font-display text-[10px] text-fg tracking-[0.28em]">
+                  {related.length > 0 ? "関連記事" : "最新記事"}
+                </h3>
+              </div>
               {sidebarArticles.map((a) => (
                 <ArticleCard key={a.slug} article={a} variant="compact" />
               ))}
             </div>
 
             {/* About */}
-            <div className="bg-stone-900 text-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-amber-400 mb-2">About</p>
-              <h3 className="font-serif font-bold mb-2 leading-snug">Culture &amp; Business</h3>
-              <p className="text-xs text-stone-300 leading-relaxed mb-3">
+            <div className="relative overflow-hidden p-6" style={{ background: "var(--foreground)", color: "var(--background)" }}>
+              <div className="absolute top-0 left-0 w-full h-[1px]" style={{ background: "var(--gold)" }} />
+              <div className="absolute top-[1px] left-0 w-full h-[2px]" style={{ background: "var(--brand)" }} />
+              <p className="font-display text-[9px] tracking-[0.32em] mb-3 mt-1 opacity-50">ABOUT</p>
+              <h3 className="font-serif text-lg font-bold mb-3 leading-snug">Culture &amp; Business</h3>
+              <p className="text-xs leading-relaxed mb-5 opacity-60">
                 歴史と美術の知恵をビジネスに活かすメディア。
               </p>
-              <Link href="/about" className="text-xs text-amber-400 hover:text-amber-300 font-semibold uppercase tracking-wider transition-colors">
-                詳しく →
+              <Link href="/about" className="font-display text-[9px] tracking-[0.28em] opacity-60 hover:opacity-100 transition-opacity">
+                詳しく見る →
               </Link>
             </div>
           </div>

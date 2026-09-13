@@ -8,13 +8,14 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div className="border-b border-stone-200 pb-8 mb-10">
-        <h1 className="font-serif text-4xl font-bold text-stone-900 mb-3">Contact</h1>
-        <p className="text-stone-500">お問い合わせ</p>
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="page-header">
+        <p className="page-eyebrow">CONTACT</p>
+        <h1 className="font-serif text-3xl sm:text-4xl font-bold text-fg mb-2">Contact</h1>
+        <p className="text-muted-var text-sm">お問い合わせ</p>
       </div>
 
-      <p className="text-stone-600 text-sm leading-relaxed mb-8">
+      <p className="text-sm leading-relaxed mb-8 text-muted-var">
         ご質問・ご意見・取材のご依頼など、お気軽にご連絡ください。通常2〜3営業日以内にご返信いたします。
       </p>
 

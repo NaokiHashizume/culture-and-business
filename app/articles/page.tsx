@@ -13,35 +13,37 @@ export default function ArticlesPage() {
   const categories = getAllCategories();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Page header */}
-      <div className="mb-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700 mb-2">Archive</p>
-        <h1 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-3">全記事</h1>
-        <p className="text-stone-400 text-sm">{articles.length} 件の記事</p>
+      <div className="page-header">
+        <p className="page-eyebrow">ARCHIVE</p>
+        <div className="flex items-end justify-between flex-wrap gap-2">
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-fg">全記事</h1>
+          <p className="font-display text-[10px] tracking-[0.2em] text-muted-var">{articles.length} ARTICLES</p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
         {/* Article list */}
         <div className="lg:col-span-3">
           {articles.length > 0
             ? articles.map((a) => <ArticleCard key={a.slug} article={a} variant="default" />)
-            : <p className="text-stone-400 py-12 text-center">記事を準備中です。</p>
+            : <p className="text-sm py-10 text-center text-muted-var">記事を準備中です。</p>
           }
         </div>
 
         {/* Sidebar: categories */}
         <aside>
           <div className="sticky top-24">
-            <h2 className="font-serif text-base font-bold text-stone-900 pb-2 mb-4 border-b-2 border-amber-600">
-              カテゴリ
-            </h2>
-            <ul className="space-y-1">
+            <div className="flex items-center gap-3 pb-3 mb-1" style={{ borderBottom: "2px solid var(--brand)" }}>
+              <span className="inline-block w-3 h-px" style={{ background: "var(--muted)" }} />
+              <h2 className="font-display text-[10px] tracking-[0.28em] text-fg">CATEGORY</h2>
+            </div>
+            <ul>
               {categories.map((cat) => (
                 <li key={cat}>
-                  <Link href={`/categories/${encodeURIComponent(cat)}`}
-                    className="flex items-center gap-2 text-sm text-stone-600 hover:text-amber-700 py-1.5 transition-colors group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-stone-300 group-hover:bg-amber-500 transition-colors flex-shrink-0" />
+                  <Link href={`/categories/${encodeURIComponent(cat)}`} className="sidebar-cat-link">
+                    <span className="cat-line" />
                     {cat}
                   </Link>
                 </li>
