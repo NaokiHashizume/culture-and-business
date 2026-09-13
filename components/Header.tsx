@@ -19,24 +19,24 @@ export default function Header() {
     <header className="sticky top-0 z-50" style={{ background: "var(--background)" }}>
 
       {/* Top utility bar */}
-      <div style={{ background: "#0D0D0D" }}>
+      <div style={{ background: "#0A0A0A" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-7">
-          <span className="font-display text-[9px] tracking-[0.3em] hidden sm:block" style={{ color: "#4A4038" }}>
+          <span className="font-display text-[9px] tracking-[0.3em] hidden sm:block" style={{ color: "#555555" }}>
             HISTORY · ART · STRATEGY · EST. 2026
           </span>
           <div className="flex items-center gap-5 ml-auto">
             <a href="https://x.com/culture_and_biz" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-1.5 transition-colors hover:text-white font-display text-[9px] tracking-[0.2em]"
-              style={{ color: "#4A4038" }} aria-label="X">
+              style={{ color: "#555555" }} aria-label="X">
               <XIcon />
               <span className="hidden sm:inline">@culture_and_biz</span>
             </a>
             <a href="https://note.com/culture_and_biz" target="_blank" rel="noopener noreferrer"
               className="font-display text-[9px] tracking-[0.2em] transition-colors hover:text-white"
-              style={{ color: "#4A4038" }} aria-label="note">NOTE</a>
+              style={{ color: "#555555" }} aria-label="note">NOTE</a>
             <a href="https://www.instagram.com/culture_and_biz" target="_blank" rel="noopener noreferrer"
               className="font-display text-[9px] tracking-[0.2em] transition-colors hover:text-white"
-              style={{ color: "#4A4038" }} aria-label="Instagram">IG</a>
+              style={{ color: "#555555" }} aria-label="Instagram">IG</a>
           </div>
         </div>
       </div>
@@ -101,9 +101,8 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Double rule — editorial masthead separator */}
-      <div style={{ height: "3px", background: "var(--foreground)" }} />
-      <div style={{ height: "1px", background: "var(--gold)", marginTop: "3px" }} />
+      {/* Rule — masthead separator */}
+      <div style={{ height: "2px", background: "var(--foreground)" }} />
 
       {/* Mobile menu */}
       {menuOpen && (

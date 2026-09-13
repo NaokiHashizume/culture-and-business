@@ -21,7 +21,7 @@ export default function Home() {
           <div className="flex overflow-x-auto items-stretch">
             <div className="flex-shrink-0 hidden sm:flex items-center pr-5 mr-1"
               style={{ borderRight: "1px solid var(--border-soft)" }}>
-              <span className="font-display text-[8px] tracking-[0.38em]" style={{ color: "var(--gold)" }}>
+              <span className="font-display text-[8px] tracking-[0.38em]" style={{ color: "var(--muted)" }}>
                 CATEGORY
               </span>
             </div>
@@ -45,13 +45,13 @@ export default function Home() {
             <div className="mb-8">
               <div className="flex items-center justify-between pb-3" style={{ borderBottom: "2px solid var(--foreground)" }}>
                 <div className="flex items-center gap-3">
-                  <span className="inline-block w-5 h-px" style={{ background: "var(--gold)" }} />
+                  <span className="inline-block w-5 h-px" style={{ background: "var(--muted)" }} />
                   <h2 className="font-display text-[10px] tracking-[0.32em] text-fg">LATEST ARTICLES</h2>
-                  <span className="inline-block w-5 h-px" style={{ background: "var(--gold)" }} />
+                  <span className="inline-block w-5 h-px" style={{ background: "var(--muted)" }} />
                 </div>
                 <Link href="/articles" className="nav-link">すべて見る →</Link>
               </div>
-              <div className="h-px mt-[3px]" style={{ background: "var(--gold)", opacity: 0.45 }} />
+              <div className="h-px mt-[3px]" style={{ background: "var(--border-soft)" }} />
             </div>
 
             <div>
@@ -69,7 +69,7 @@ export default function Home() {
               <div>
                 <div className="mb-4">
                   <div className="flex items-center gap-3 pb-3" style={{ borderBottom: "2px solid var(--brand)" }}>
-                    <span className="inline-block w-3 h-px" style={{ background: "var(--gold)" }} />
+                    <span className="inline-block w-3 h-px" style={{ background: "var(--muted)" }} />
                     <h3 className="font-display text-[10px] text-fg tracking-[0.28em]">FEATURED</h3>
                   </div>
                 </div>
@@ -81,12 +81,12 @@ export default function Home() {
             <div className="relative overflow-hidden p-6" style={{ background: "var(--foreground)", color: "var(--background)" }}>
               <div className="absolute top-0 left-0 w-full h-[1px]" style={{ background: "var(--gold)" }} />
               <div className="absolute top-[1px] left-0 w-full h-[2px]" style={{ background: "var(--brand)" }} />
-              <p className="font-display text-[9px] tracking-[0.32em] mb-3 mt-1" style={{ color: "var(--gold)" }}>ABOUT THIS SITE</p>
+              <p className="font-display text-[9px] tracking-[0.32em] mb-3 mt-1 opacity-50">ABOUT THIS SITE</p>
               <h3 className="font-serif text-lg font-bold mb-3 leading-snug">Culture &amp; Business とは</h3>
               <p className="text-xs leading-relaxed mb-5 opacity-60">
                 歴史と美術の視点から現代ビジネスを読み解くメディア。古今東西の知恵を経営に活かします。
               </p>
-              <Link href="/about" className="font-display text-[9px] tracking-[0.28em]" style={{ color: "var(--gold)" }}>
+              <Link href="/about" className="font-display text-[9px] tracking-[0.28em] opacity-60 hover:opacity-100 transition-opacity">
                 詳しく見る →
               </Link>
             </div>
