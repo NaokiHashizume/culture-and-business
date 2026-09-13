@@ -22,13 +22,13 @@ export default function ArticleCard({ article, variant = "default" }: Props) {
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent z-10" />
 
-          {/* Top gold label */}
+          {/* Top label */}
           <div className="absolute top-0 left-0 right-0 z-20 px-8 sm:px-14 pt-8 hidden sm:flex items-center gap-4">
-            <div className="h-px w-10" style={{ background: "var(--gold)" }} />
-            <span className="font-display text-[9px] tracking-[0.38em]" style={{ color: "var(--gold)" }}>
+            <div className="h-px w-10" style={{ background: "rgba(255,255,255,0.4)" }} />
+            <span className="font-display text-[9px] tracking-[0.38em]" style={{ color: "rgba(255,255,255,0.5)" }}>
               FEATURE ARTICLE
             </span>
-            <div className="h-px w-16" style={{ background: "rgba(158,122,42,0.35)" }} />
+            <div className="h-px w-16" style={{ background: "rgba(255,255,255,0.15)" }} />
           </div>
 
           {/* Content */}

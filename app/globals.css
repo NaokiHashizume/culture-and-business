@@ -3,29 +3,29 @@
 
 /* ─── Brand tokens ─── */
 :root {
-  --background: #EDE6D6;     /* warm parchment / vellum */
-  --foreground: #1A1410;     /* warm deep charcoal */
-  --surface:    #F5EFE2;     /* lighter parchment */
-  --border:     #1A1410;
-  --border-soft:#C0B8A8;     /* warm taupe */
-  --muted:      #7A7060;     /* warm brown-gray */
-  --brand:      #C8102E;     /* crimson */
-  --brand-hover:#A50E25;
-  --gold:       #9E7A2A;     /* antique gold */
-  --gold-light: #C8A04A;
+  --background: #FFFFFF;
+  --foreground: #0A0A0A;
+  --surface:    #F5F5F5;
+  --border:     #0A0A0A;
+  --border-soft:#DCDCDC;
+  --muted:      #767676;
+  --brand:      #0A0A0A;
+  --brand-hover:#333333;
+  --gold:       #767676;
+  --gold-light: #A0A0A0;
 }
 
 .dark {
-  --background: #0E0B08;     /* dark warm charcoal */
-  --foreground: #E8DDD0;     /* warm off-white */
-  --surface:    #1A1712;
-  --border:     #E8DDD0;
-  --border-soft:#2D2720;     /* dark warm brown */
-  --muted:      #857A6E;
-  --brand:      #D9152F;
-  --brand-hover:#F01838;
-  --gold:       #B88A38;
-  --gold-light: #D4A843;
+  --background: #0A0A0A;
+  --foreground: #F0F0F0;
+  --surface:    #141414;
+  --border:     #F0F0F0;
+  --border-soft:#2A2A2A;
+  --muted:      #888888;
+  --brand:      #F0F0F0;
+  --brand-hover:#CCCCCC;
+  --gold:       #888888;
+  --gold-light: #AAAAAA;
 }
 
 @theme inline {
@@ -229,18 +229,7 @@ body {
 
 /* ─── Hero pattern ─── */
 .hero-pattern {
-  background-color: #0E0B08;
-  background-image:
-    radial-gradient(ellipse at 8% 65%, rgba(200, 16, 46, 0.28) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 12%, rgba(158, 122, 42, 0.20) 0%, transparent 42%),
-    radial-gradient(ellipse at 50% 90%, rgba(200, 16, 46, 0.07) 0%, transparent 35%),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 60px,
-      rgba(255, 255, 255, 0.006) 60px,
-      rgba(255, 255, 255, 0.006) 61px
-    );
+  background-color: #0A0A0A;
 }
 
 /* ─── Animations ─── */
