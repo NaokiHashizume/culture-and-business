@@ -9,10 +9,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div className="border-b border-stone-200 pb-8 mb-10">
-        <h1 className="font-serif text-4xl font-bold text-stone-900 mb-3">About</h1>
-        <p className="text-stone-500">Culture &amp; Business について</p>
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="page-header">
+        <p className="page-eyebrow">ABOUT</p>
+        <h1 className="font-serif text-3xl sm:text-4xl font-bold text-fg mb-2">About</h1>
+        <p className="text-muted-var text-sm">Culture &amp; Business について</p>
       </div>
 
       <div className="prose-article">
@@ -49,11 +50,11 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <div className="mt-10 pt-8 border-t border-stone-200 flex gap-4 flex-wrap">
-        <Link href="/contact" className="bg-stone-900 text-white text-sm font-semibold px-5 py-2.5 hover:bg-stone-700 transition-colors">
+      <div className="mt-8 pt-6 flex gap-4 flex-wrap" style={{ borderTop: "1px solid var(--border-soft)" }}>
+        <Link href="/contact" className="btn-brand">
           お問い合わせ
         </Link>
-        <Link href="/articles" className="border border-stone-300 text-stone-700 text-sm font-semibold px-5 py-2.5 hover:bg-stone-50 transition-colors">
+        <Link href="/articles" className="btn-outline">
           記事を読む
         </Link>
       </div>

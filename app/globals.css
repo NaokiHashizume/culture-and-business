@@ -77,7 +77,7 @@ body {
 /* ─── Interactive elements ─── */
 .btn-brand {
   background: var(--brand);
-  color: #ffffff;
+  color: var(--background);
   transition: background 0.2s ease;
   font-family: var(--font-display), sans-serif;
   text-transform: uppercase;
@@ -230,6 +230,73 @@ body {
 /* ─── Hero pattern ─── */
 .hero-pattern {
   background-color: #0A0A0A;
+}
+
+/* ─── Page header (Archive / Category / About / Contact / etc.) ─── */
+.page-eyebrow {
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.6875rem;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.75rem;
+}
+.page-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 1.25rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+.page-header {
+  border-bottom: 2px solid var(--foreground);
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* ─── Form elements ─── */
+.field-label {
+  display: block;
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.6875rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.field-input {
+  width: 100%;
+  border: 1px solid var(--border-soft);
+  background: var(--surface);
+  color: var(--foreground);
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease;
+}
+.field-input::placeholder { color: var(--muted); opacity: 0.7; }
+.field-input:focus { outline: none; border-color: var(--brand); }
+
+/* ─── Alerts ─── */
+.alert {
+  border-left: 3px solid;
+  padding: 0.875rem 1.125rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+.alert-success {
+  border-color: #2F855A;
+  background: rgba(47, 133, 90, 0.08);
+  color: var(--foreground);
+}
+.alert-error {
+  border-color: #C53030;
+  background: rgba(197, 48, 48, 0.08);
+  color: var(--foreground);
 }
 
 /* ─── Animations ─── */

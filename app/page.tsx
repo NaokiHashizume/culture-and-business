@@ -35,14 +35,14 @@ export default function Home() {
       </div>
 
       {/* Main content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
 
           {/* Latest articles */}
           <div className="lg:col-span-2">
 
             {/* Section header with double rule */}
-            <div className="mb-8">
+            <div className="mb-6">
               <div className="flex items-center justify-between pb-3" style={{ borderBottom: "2px solid var(--foreground)" }}>
                 <div className="flex items-center gap-3">
                   <span className="inline-block w-5 h-px" style={{ background: "var(--muted)" }} />
@@ -63,7 +63,7 @@ export default function Home() {
           </div>
 
           {/* Sidebar */}
-          <aside className="space-y-10">
+          <aside className="space-y-8">
 
             {sidebarArticles.length > 0 && (
               <div>
