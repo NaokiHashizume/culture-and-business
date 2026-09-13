@@ -9,7 +9,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return getAllCategories().map((c) => ({ category: encodeURIComponent(c) }));
+  return getAllCategories().map((c) => ({ category: c }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
