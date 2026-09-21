@@ -3,12 +3,12 @@
 
 /* ─── Brand tokens ─── */
 :root {
-  --background: #FAF6EE;
+  --background: #FFFFFF;
   --foreground: #1A1208;
-  --surface:    #F0E8D8;
+  --surface:    #F7F4EF;
   --border:     #1A1208;
-  --border-soft:#D4C8B0;
-  --muted:      #8B7D6B;
+  --border-soft:#E0D8CC;
+  --muted:      #7A7068;
   --brand:      #8B1A1A;
   --brand-hover:#6B1212;
   --gold:       #B5883B;

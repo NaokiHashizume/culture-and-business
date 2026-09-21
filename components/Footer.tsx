@@ -19,9 +19,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="font-logo mb-0.5 leading-none">
-              <span className="text-xl font-bold" style={{ color: "#EDE5D0" }}>Culture</span>
-              <span className="text-xl font-normal italic mx-1" style={{ color: "#B8903E" }}>&amp;</span>
-              <span className="text-xl font-bold" style={{ color: "#EDE5D0" }}>Business</span>
+              <span className="text-xl font-bold uppercase" style={{ color: "#EDE5D0" }}>Culture</span>
+              <span className="text-[1.3rem] font-semibold mx-1" style={{ color: "#B8903E", fontStyle: "normal" }}>&</span>
+              <span className="text-xl font-bold uppercase" style={{ color: "#EDE5D0" }}>Business</span>
             </div>
             <p className="font-display text-[9px] tracking-[0.3em] mb-1" style={{ color: "#9A8A75" }}>
               HISTORY · ART · STRATEGY

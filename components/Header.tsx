@@ -48,14 +48,14 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="group flex-shrink-0">
             <div className="leading-tight">
-              <div className="font-logo">
-                <span className="text-[1.75rem] sm:text-[2.25rem] font-bold tracking-wide" style={{ color: "var(--foreground)" }}>
+              <div className="font-logo" style={{ letterSpacing: "0.03em" }}>
+                <span className="text-[1.75rem] sm:text-[2.3rem] font-bold uppercase" style={{ color: "var(--foreground)" }}>
                   Culture
                 </span>
-                <span className="text-[1.75rem] sm:text-[2.25rem] font-normal italic mx-1" style={{ color: "var(--gold)" }}>
-                  &amp;
+                <span className="text-[2rem] sm:text-[2.6rem] font-semibold mx-1.5" style={{ color: "var(--gold)", fontStyle: "normal" }}>
+                  &
                 </span>
-                <span className="text-[1.75rem] sm:text-[2.25rem] font-bold tracking-wide" style={{ color: "var(--foreground)" }}>
+                <span className="text-[1.75rem] sm:text-[2.3rem] font-bold uppercase" style={{ color: "var(--foreground)" }}>
                   Business
                 </span>
               </div>
