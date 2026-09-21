@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { Playfair_Display, Oswald } from "next/font/google";
+import { Playfair_Display, Oswald, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -24,6 +24,13 @@ const oswald = Oswald({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-logo",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -59,7 +66,7 @@ const themeScript = `(function(){
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja" className={`${geist.variable} ${playfair.variable} ${oswald.variable} h-full`} suppressHydrationWarning>
+    <html lang="ja" className={`${geist.variable} ${playfair.variable} ${oswald.variable} ${cormorant.variable} h-full`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {GA_ID && (

@@ -19,7 +19,7 @@ export default function Header() {
     <header className="sticky top-0 z-50" style={{ background: "var(--background)" }}>
 
       {/* Top utility bar */}
-      <div style={{ background: "#0A0A0A" }}>
+      <div style={{ background: "#1A0D0A" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-7">
           <span className="font-display text-[9px] tracking-[0.3em] hidden sm:block" style={{ color: "#555555" }}>
             HISTORY · ART · STRATEGY · EST. 2026
@@ -48,20 +48,23 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="group flex-shrink-0">
             <div className="leading-tight">
-              <div className="font-serif">
-                <span className="text-[1.7rem] sm:text-[2.2rem] font-bold" style={{ color: "var(--foreground)", letterSpacing: "-0.01em" }}>
-                  CULTURE
+              <div className="font-logo">
+                <span className="text-[1.75rem] sm:text-[2.25rem] font-bold tracking-wide" style={{ color: "var(--foreground)" }}>
+                  Culture
                 </span>
-                <span className="text-[1.7rem] sm:text-[2.2rem] font-light mx-1.5" style={{ color: "var(--brand)" }}>
+                <span className="text-[1.75rem] sm:text-[2.25rem] font-normal italic mx-1" style={{ color: "var(--gold)" }}>
                   &amp;
                 </span>
-                <span className="text-[1.7rem] sm:text-[2.2rem] font-bold" style={{ color: "var(--foreground)", letterSpacing: "-0.01em" }}>
-                  BUSINESS
+                <span className="text-[1.75rem] sm:text-[2.25rem] font-bold tracking-wide" style={{ color: "var(--foreground)" }}>
+                  Business
                 </span>
               </div>
-              <p className="font-display text-[8px] tracking-[0.4em] mt-1" style={{ color: "var(--muted)" }}>
-                歴史と美術が切り拓くビジネスの未来
-              </p>
+              <div className="flex items-center gap-2 mt-0.5">
+                <div className="h-px w-4" style={{ background: "var(--gold)" }} />
+                <p className="font-display text-[7px] tracking-[0.4em]" style={{ color: "var(--muted)" }}>
+                  歴史と美術が切り拓くビジネスの未来
+                </p>
+              </div>
             </div>
           </Link>
 

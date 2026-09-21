@@ -9,55 +9,55 @@ const XIcon = () => (
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer style={{ background: "#0A0A0A", color: "#767676" }} className="mt-auto">
+    <footer style={{ background: "#1A0D0A", color: "#9A8A75" }} className="mt-auto">
       {/* Rule at top */}
-      <div style={{ height: "2px", background: "#F0F0F0" }} />
+      <div style={{ height: "2px", background: "#D4C8B0" }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
 
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="font-serif mb-0.5 leading-none">
-              <span className="text-xl font-bold text-white">CULTURE</span>
-              <span className="text-xl font-light mx-1 text-white">&amp;</span>
-              <span className="text-xl font-bold text-white">BUSINESS</span>
+            <div className="font-logo mb-0.5 leading-none">
+              <span className="text-xl font-bold" style={{ color: "#EDE5D0" }}>Culture</span>
+              <span className="text-xl font-normal italic mx-1" style={{ color: "#B8903E" }}>&amp;</span>
+              <span className="text-xl font-bold" style={{ color: "#EDE5D0" }}>Business</span>
             </div>
-            <p className="font-display text-[9px] tracking-[0.3em] mb-1" style={{ color: "#767676" }}>
+            <p className="font-display text-[9px] tracking-[0.3em] mb-1" style={{ color: "#9A8A75" }}>
               HISTORY · ART · STRATEGY
             </p>
-            <p className="font-display text-[9px] tracking-[0.22em] mb-5" style={{ color: "#444444" }}>
+            <p className="font-display text-[9px] tracking-[0.22em] mb-5" style={{ color: "#6A5A4A" }}>
               EST. 2026
             </p>
-            <p className="text-xs leading-relaxed mb-5" style={{ color: "#555555" }}>
+            <p className="text-xs leading-relaxed mb-5" style={{ color: "#7A6A58" }}>
               歴史と美術の知恵をビジネスに活かす。<br />時代を超えた洞察で、現代の課題を解く。
             </p>
             <div className="flex items-center gap-4">
               <a href="https://x.com/culture_and_biz" target="_blank" rel="noopener noreferrer"
-                className="transition-colors hover:text-white" style={{ color: "#444038" }} aria-label="X">
+                className="transition-colors hover:text-white" style={{ color: "#6A5A48" }} aria-label="X">
                 <XIcon />
               </a>
               <a href="https://note.com/culture_and_biz" target="_blank" rel="noopener noreferrer"
                 className="font-display text-[10px] tracking-[0.15em] transition-colors hover:text-white"
-                style={{ color: "#444038" }} aria-label="note">NOTE</a>
+                style={{ color: "#6A5A48" }} aria-label="note">NOTE</a>
               <a href="https://www.instagram.com/culture_and_biz" target="_blank" rel="noopener noreferrer"
                 className="font-display text-[10px] tracking-[0.15em] transition-colors hover:text-white"
-                style={{ color: "#444038" }} aria-label="Instagram">IG</a>
+                style={{ color: "#6A5A48" }} aria-label="Instagram">IG</a>
             </div>
           </div>
 
           {/* Categories */}
           <div>
-            <h3 className="font-display text-[9px] tracking-[0.3em] mb-5 pb-2" style={{ color: "#767676", borderBottom: "1px solid #2A2A2A" }}>
+            <h3 className="font-display text-[9px] tracking-[0.3em] mb-5 pb-2" style={{ color: "#9A8A75", borderBottom: "1px solid #3A2E1F" }}>
               CATEGORY
             </h3>
             <ul className="space-y-3">
               {["歴史", "美術"].map((cat) => (
                 <li key={cat}>
                   <Link href={`/categories/${encodeURIComponent(cat)}`}
-                    className="text-sm transition-colors flex items-center gap-2 group" style={{ color: "#555555" }}>
-                    <span className="w-3 h-px group-hover:w-4 group-hover:bg-brand transition-all" style={{ background: "#3A3A3A" }} />
-                    <span className="group-hover:text-white transition-colors">{cat}</span>
+                    className="text-sm transition-colors flex items-center gap-2 group" style={{ color: "#7A6A58" }}>
+                    <span className="w-3 h-px group-hover:w-4 transition-all" style={{ background: "#5A4A38" }} />
+                    <span className="group-hover:text-[#EDE5D0] transition-colors">{cat}</span>
                   </Link>
                 </li>
               ))}
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-display text-[9px] tracking-[0.3em] mb-5 pb-2" style={{ color: "#767676", borderBottom: "1px solid #2A2A2A" }}>
+            <h3 className="font-display text-[9px] tracking-[0.3em] mb-5 pb-2" style={{ color: "#9A8A75", borderBottom: "1px solid #3A2E1F" }}>
               NAVIGATE
             </h3>
             <ul className="space-y-3">
@@ -77,9 +77,9 @@ export default function Footer() {
                 { href: "/contact", label: "Contact" },
               ].map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="text-sm transition-colors flex items-center gap-2 group" style={{ color: "#555555" }}>
-                    <span className="w-3 h-px group-hover:w-4 group-hover:bg-brand transition-all" style={{ background: "#3A3A3A" }} />
-                    <span className="group-hover:text-white transition-colors">{label}</span>
+                  <Link href={href} className="text-sm transition-colors flex items-center gap-2 group" style={{ color: "#7A6A58" }}>
+                    <span className="w-3 h-px group-hover:w-4 transition-all" style={{ background: "#5A4A38" }} />
+                    <span className="group-hover:text-[#EDE5D0] transition-colors">{label}</span>
                   </Link>
                 </li>
               ))}
@@ -88,23 +88,23 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="font-display text-[9px] tracking-[0.3em] mb-5 pb-2" style={{ color: "#767676", borderBottom: "1px solid #2A2A2A" }}>
+            <h3 className="font-display text-[9px] tracking-[0.3em] mb-5 pb-2" style={{ color: "#9A8A75", borderBottom: "1px solid #3A2E1F" }}>
               LEGAL
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/privacy-policy" className="text-sm transition-colors flex items-center gap-2 group" style={{ color: "#555555" }}>
-                  <span className="w-3 h-px group-hover:w-4 group-hover:bg-brand transition-all" style={{ background: "#3A3A3A" }} />
-                  <span className="group-hover:text-white transition-colors">プライバシーポリシー</span>
+                <Link href="/privacy-policy" className="text-sm transition-colors flex items-center gap-2 group" style={{ color: "#7A6A58" }}>
+                  <span className="w-3 h-px group-hover:w-4 transition-all" style={{ background: "#5A4A38" }} />
+                  <span className="group-hover:text-[#EDE5D0] transition-colors">プライバシーポリシー</span>
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3" style={{ borderTop: "1px solid #2A2A2A" }}>
-          <p className="text-xs" style={{ color: "#444444" }}>&copy; {year} Culture &amp; Business. All rights reserved.</p>
-          <p className="font-display text-[9px] tracking-[0.3em]" style={{ color: "#555555" }}>HISTORY · ART · STRATEGY</p>
+        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3" style={{ borderTop: "1px solid #3A2E1F" }}>
+          <p className="text-xs" style={{ color: "#6A5A4A" }}>&copy; {year} Culture &amp; Business. All rights reserved.</p>
+          <p className="font-display text-[9px] tracking-[0.3em]" style={{ color: "#7A6A58" }}>HISTORY · ART · STRATEGY</p>
         </div>
       </div>
     </footer>

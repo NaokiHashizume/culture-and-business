@@ -3,29 +3,29 @@
 
 /* ─── Brand tokens ─── */
 :root {
-  --background: #FFFFFF;
-  --foreground: #0A0A0A;
-  --surface:    #F5F5F5;
-  --border:     #0A0A0A;
-  --border-soft:#DCDCDC;
-  --muted:      #767676;
-  --brand:      #0A0A0A;
-  --brand-hover:#333333;
-  --gold:       #767676;
-  --gold-light: #A0A0A0;
+  --background: #FAF6EE;
+  --foreground: #1A1208;
+  --surface:    #F0E8D8;
+  --border:     #1A1208;
+  --border-soft:#D4C8B0;
+  --muted:      #8B7D6B;
+  --brand:      #8B1A1A;
+  --brand-hover:#6B1212;
+  --gold:       #B5883B;
+  --gold-light: #D4A85A;
 }
 
 .dark {
-  --background: #0A0A0A;
-  --foreground: #F0F0F0;
-  --surface:    #141414;
-  --border:     #F0F0F0;
-  --border-soft:#2A2A2A;
-  --muted:      #888888;
-  --brand:      #F0F0F0;
-  --brand-hover:#CCCCCC;
-  --gold:       #888888;
-  --gold-light: #AAAAAA;
+  --background: #110C08;
+  --foreground: #EDE5D0;
+  --surface:    #1C1410;
+  --border:     #EDE5D0;
+  --border-soft:#3A2E1F;
+  --muted:      #9A8A75;
+  --brand:      #C47060;
+  --brand-hover:#A85848;
+  --gold:       #B8903E;
+  --gold-light: #CCA450;
 }
 
 @theme inline {
@@ -34,9 +34,11 @@
   --color-surface:    var(--surface);
   --color-brand:      var(--brand);
   --color-brand-hover:var(--brand-hover);
+  --color-gold:       var(--gold);
   --font-sans:    var(--font-sans);
   --font-serif:   var(--font-serif);
   --font-display: var(--font-display);
+  --font-logo:    var(--font-logo);
 }
 
 /* ─── Base ─── */
@@ -51,6 +53,9 @@ body {
 /* ─── Font utilities ─── */
 .font-serif {
   font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+}
+.font-logo {
+  font-family: var(--font-logo), "Palatino Linotype", Georgia, serif;
 }
 .font-display {
   font-family: var(--font-display), "Helvetica Neue", Arial, sans-serif;
@@ -188,11 +193,11 @@ body {
   border-left: 3px solid var(--gold);
   padding: 1rem 1.5rem;
   margin: 2rem 0;
-  background: rgba(158, 122, 42, 0.06);
+  background: rgba(181, 136, 59, 0.07);
   font-style: italic;
   color: var(--foreground);
 }
-.dark .prose-article blockquote { background: rgba(184, 138, 56, 0.08); }
+.dark .prose-article blockquote { background: rgba(184, 144, 62, 0.09); }
 
 .prose-article ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.625rem; }
 .prose-article ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.625rem; }
@@ -229,7 +234,7 @@ body {
 
 /* ─── Hero pattern ─── */
 .hero-pattern {
-  background-color: #0A0A0A;
+  background: linear-gradient(150deg, #1A0808 0%, #0D0A14 60%, #0A1010 100%);
 }
 
 /* ─── Page header (Archive / Category / About / Contact / etc.) ─── */
