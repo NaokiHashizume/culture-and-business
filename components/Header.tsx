@@ -80,6 +80,13 @@ export default function Header() {
             <Link href="/about"
               className="font-display text-[10px] tracking-[0.15em] px-3 py-1.5 transition-colors hover:text-brand"
               style={{ color: "var(--muted)" }}>ABOUT</Link>
+            <Link href="/search" aria-label="検索"
+              className="px-3 py-1.5 transition-opacity hover:opacity-60"
+              style={{ color: "var(--muted)" }}>
+              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="22" y2="22" />
+              </svg>
+            </Link>
             <ThemeToggle />
           </nav>
 
@@ -111,6 +118,7 @@ export default function Header() {
             {[
               { href: "/articles", label: "全記事" },
               ...categories.map((cat) => ({ href: `/categories/${encodeURIComponent(cat)}`, label: cat })),
+              { href: "/search", label: "検索" },
               { href: "/about", label: "About" },
               { href: "/contact", label: "Contact" },
             ].map(({ href, label }) => (
