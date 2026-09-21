@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
-const categories = ["歴史", "美術", "デザイン"];
+const categories = ["歴史", "美術"];
 
 const XIcon = () => (
   <svg viewBox="0 0 24 24" className="w-3 h-3 fill-current" aria-hidden="true">

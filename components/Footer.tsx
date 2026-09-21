@@ -52,7 +52,7 @@ export default function Footer() {
               CATEGORY
             </h3>
             <ul className="space-y-3">
-              {["歴史", "美術", "デザイン"].map((cat) => (
+              {["歴史", "美術"].map((cat) => (
                 <li key={cat}>
                   <Link href={`/categories/${encodeURIComponent(cat)}`}
                     className="text-sm transition-colors flex items-center gap-2 group" style={{ color: "#555555" }}>
