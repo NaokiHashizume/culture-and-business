@@ -2,7 +2,7 @@ import Link from "next/link";
 import ArticleCard from "@/components/ArticleCard";
 import { getAllArticles } from "@/lib/articles";
 
-const categories = ["歴史", "美術", "経営戦略", "リーダーシップ", "イノベーション"];
+const categories = ["歴史", "美術", "デザイン"];
 
 export default function Home() {
   const articles = getAllArticles();
