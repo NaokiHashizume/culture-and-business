@@ -8,11 +8,23 @@ const initialState: ContactState = { status: "idle", message: "" };
 export default function ContactForm() {
   const [state, formAction, pending] = useActionState(sendContact, initialState);
 
+  const inputStyle = {
+    width: "100%",
+    border: "1px solid var(--border-soft)",
+    padding: "0.75rem 1rem",
+    fontSize: "0.875rem",
+    color: "var(--foreground)",
+    background: "var(--surface)",
+    outline: "none",
+    borderRadius: "0",
+    fontFamily: "inherit",
+  };
+
   if (state.status === "success") {
     return (
-      <div className="alert alert-success">
-        <p className="font-semibold mb-1">送信完了</p>
-        <p>{state.message}</p>
+      <div className="p-6 text-sm" style={{ border: "1px solid var(--brand)", background: "rgba(200,16,46,0.04)" }}>
+        <p className="font-display text-[10px] tracking-[0.2em] mb-2" style={{ color: "var(--brand)" }}>SENT</p>
+        <p style={{ color: "var(--foreground)" }}>{state.message}</p>
       </div>
     );
   }
@@ -20,67 +32,58 @@ export default function ContactForm() {
   return (
     <form action={formAction} className="space-y-5">
       {state.status === "error" && (
-        <div className="alert alert-error">{state.message}</div>
+        <div className="p-4 text-sm" style={{ border: "1px solid #C8102E", background: "rgba(200,16,46,0.04)", color: "#C8102E" }}>
+          {state.message}
+        </div>
       )}
 
-      <div>
-        <label htmlFor="name" className="field-label">
-          お名前 <span style={{ color: "#C53030" }}>*</span>
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          className="field-input"
-          placeholder="山田 太郎"
-        />
-      </div>
+      {[
+        { id: "name", label: "お名前", type: "text", placeholder: "山田 太郎" },
+        { id: "email", label: "メールアドレス", type: "email", placeholder: "your@email.com" },
+        { id: "subject", label: "件名", type: "text", placeholder: "お問い合わせの件名" },
+      ].map(({ id, label, type, placeholder }) => (
+        <div key={id}>
+          <label htmlFor={id} className="block font-display text-[10px] tracking-[0.2em] mb-2" style={{ color: "var(--muted)" }}>
+            {label.toUpperCase()} <span style={{ color: "var(--brand)" }}>*</span>
+          </label>
+          <input
+            type={type}
+            id={id}
+            name={id}
+            required
+            placeholder={placeholder}
+            style={inputStyle}
+            onFocus={(e) => (e.target.style.borderColor = "var(--brand)")}
+            onBlur={(e) => (e.target.style.borderColor = "var(--border-soft)")}
+          />
+        </div>
+      ))}
 
       <div>
-        <label htmlFor="email" className="field-label">
-          メールアドレス <span style={{ color: "#C53030" }}>*</span>
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          className="field-input"
-          placeholder="your@email.com"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="subject" className="field-label">
-          件名 <span style={{ color: "#C53030" }}>*</span>
-        </label>
-        <input
-          type="text"
-          id="subject"
-          name="subject"
-          required
-          className="field-input"
-          placeholder="お問い合わせの件名"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="message" className="field-label">
-          メッセージ <span style={{ color: "#C53030" }}>*</span>
+        <label htmlFor="message" className="block font-display text-[10px] tracking-[0.2em] mb-2" style={{ color: "var(--muted)" }}>
+          メッセージ <span style={{ color: "var(--brand)" }}>*</span>
         </label>
         <textarea
           id="message"
           name="message"
           required
           rows={6}
-          className="field-input resize-none"
           placeholder="お問い合わせ内容をご記入ください"
+          style={{ ...inputStyle, resize: "none" }}
+          onFocus={(e) => (e.target.style.borderColor = "var(--brand)")}
+          onBlur={(e) => (e.target.style.borderColor = "var(--border-soft)")}
         />
       </div>
 
-      <button type="submit" disabled={pending} className="btn-brand w-full justify-center !py-3 disabled:opacity-50 disabled:cursor-not-allowed">
-        {pending ? "送信中..." : "送信する"}
+      <button
+        type="submit"
+        disabled={pending}
+        className="w-full font-display text-[11px] tracking-[0.25em] text-white py-4 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+        style={{ background: "var(--brand)" }}
+        onMouseEnter={(e) => !pending && (e.currentTarget.style.background = "var(--brand-hover)")}
+        onMouseLeave={(e) => (e.currentTarget.style.background = "var(--brand)")}
+      >
+        {pending ? "SENDING..." : "SEND MESSAGE"}
       </button>
     </form>
   );

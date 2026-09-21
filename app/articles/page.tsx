@@ -13,33 +13,27 @@ export default function ArticlesPage() {
   const categories = getAllCategories();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      {/* Page header */}
-      <div className="page-header">
-        <p className="page-eyebrow">ARCHIVE</p>
-        <div className="flex items-end justify-between flex-wrap gap-2">
-          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-fg">全記事</h1>
-          <p className="font-display text-[10px] tracking-[0.2em] text-muted-var">{articles.length} ARTICLES</p>
-        </div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mb-10 pb-6" style={{ borderBottom: "2px solid var(--foreground)" }}>
+        <p className="font-display text-[10px] tracking-[0.3em] mb-2 text-brand">ARCHIVE</p>
+        <h1 className="font-serif text-4xl font-bold text-fg">全記事</h1>
+        <p className="font-display text-[10px] tracking-wider mt-2 text-muted-var">{articles.length} ARTICLES</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-        {/* Article list */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
         <div className="lg:col-span-3">
           {articles.length > 0
             ? articles.map((a) => <ArticleCard key={a.slug} article={a} variant="default" />)
-            : <p className="text-sm py-10 text-center text-muted-var">記事を準備中です。</p>
+            : <p className="py-12 text-center text-muted-var">記事を準備中です。</p>
           }
         </div>
 
-        {/* Sidebar: categories */}
         <aside>
           <div className="sticky top-24">
-            <div className="flex items-center gap-3 pb-3 mb-1" style={{ borderBottom: "2px solid var(--brand)" }}>
-              <span className="inline-block w-3 h-px" style={{ background: "var(--muted)" }} />
-              <h2 className="font-display text-[10px] tracking-[0.28em] text-fg">CATEGORY</h2>
+            <div className="pb-3 mb-4" style={{ borderBottom: "2px solid var(--brand)" }}>
+              <h2 className="font-display text-[11px] tracking-[0.2em] text-fg">CATEGORY</h2>
             </div>
-            <ul>
+            <ul className="space-y-0">
               {categories.map((cat) => (
                 <li key={cat}>
                   <Link href={`/categories/${encodeURIComponent(cat)}`} className="sidebar-cat-link">
