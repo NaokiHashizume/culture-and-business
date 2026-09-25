@@ -15,9 +15,18 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
   const decoded = decodeURIComponent(category);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://culture-and-business.vercel.app";
+  const categoryUrl = `${siteUrl}/categories/${encodeURIComponent(decoded)}`;
   return {
-    title: `${decoded}の記事`,
-    description: `${decoded}に関する記事一覧。歴史と美術の視点からビジネスを読み解きます。`,
+    title: `${decoded}の記事一覧`,
+    description: `Culture & Businessの「${decoded}」カテゴリの記事一覧。歴史と美術の視点から現代ビジネスを読み解きます。`,
+    alternates: { canonical: categoryUrl },
+    openGraph: {
+      title: `${decoded}の記事一覧 | Culture & Business`,
+      description: `Culture & Businessの「${decoded}」カテゴリの記事一覧。歴史と美術の視点から現代ビジネスを読み解きます。`,
+      url: categoryUrl,
+      type: "website",
+    },
   };
 }
 

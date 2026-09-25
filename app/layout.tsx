@@ -33,29 +33,39 @@ const cormorant = Cormorant_Garamond({
   style: ["normal", "italic"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://culture-and-business.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Culture & Business | 歴史と美術が切り拓くビジネスの未来",
     template: "%s | Culture & Business",
   },
   description:
     "歴史と美術の知恵をビジネスに活かす。時代を超えた洞察で、現代の経営課題を読み解くメディア。",
-  keywords: ["歴史", "美術", "ビジネス", "経営戦略", "リーダーシップ", "イノベーション"],
-  authors: [{ name: "Culture & Business" }],
+  keywords: ["歴史", "美術", "ビジネス", "経営戦略", "文化", "ルネサンス", "江戸時代", "経営", "マーケティング"],
+  authors: [{ name: "Culture & Business", url: siteUrl }],
   creator: "Culture & Business",
+  publisher: "Culture & Business",
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
     type: "website",
     locale: "ja_JP",
+    url: siteUrl,
     siteName: "Culture & Business",
     title: "Culture & Business | 歴史と美術が切り拓くビジネスの未来",
     description: "歴史と美術の知恵をビジネスに活かす。時代を超えた洞察で、現代の経営課題を読み解くメディア。",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Culture & Business" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Culture & Business",
-    description: "歴史と美術の知恵をビジネスに活かす。",
+    title: "Culture & Business | 歴史と美術が切り拓くビジネスの未来",
+    description: "歴史と美術の知恵をビジネスに活かす。時代を超えた洞察で、現代の経営課題を読み解くメディア。",
+    images: ["/opengraph-image"],
   },
-  robots: { index: true, follow: true },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
 const themeScript = `(function(){

@@ -3,9 +3,18 @@ import ArticleCard from "@/components/ArticleCard";
 import { getAllArticles, getAllCategories } from "@/lib/articles";
 import Link from "next/link";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://culture-and-business.vercel.app";
+
 export const metadata: Metadata = {
-  title: "全記事",
-  description: "Culture & Business の全記事一覧。歴史と美術の視点からビジネスを読み解く記事をお届けします。",
+  title: "記事一覧",
+  description: "Culture & Business の全記事一覧。メディチ家、江戸商人、バウハウスなど歴史と美術の事例をビジネスに活かす記事をお届けします。",
+  alternates: { canonical: `${siteUrl}/articles` },
+  openGraph: {
+    title: "記事一覧 | Culture & Business",
+    description: "Culture & Business の全記事一覧。歴史と美術の事例からビジネスを読み解く記事をお届けします。",
+    url: `${siteUrl}/articles`,
+    type: "website",
+  },
 };
 
 export default function ArticlesPage() {

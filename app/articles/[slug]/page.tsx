@@ -18,14 +18,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticleBySlug(slug);
   if (!article) return {};
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://culture-and-business.vercel.app";
+  const articleUrl = `${siteUrl}/articles/${slug}`;
   return {
     title: article.title,
     description: article.excerpt,
+    keywords: article.tags,
+    alternates: { canonical: articleUrl },
     openGraph: {
       title: article.title,
       description: article.excerpt,
       type: "article",
+      url: articleUrl,
       publishedTime: article.date,
+      modifiedTime: article.date,
+      authors: ["Culture & Business"],
+      section: article.category,
+      tags: article.tags,
     },
     twitter: {
       card: "summary_large_image",
@@ -56,7 +65,37 @@ export default async function ArticlePage({ params }: Props) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://culture-and-business.vercel.app";
   const articleUrl = `${siteUrl}/articles/${slug}`;
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.title,
+    "description": article.excerpt,
+    "datePublished": article.date,
+    "dateModified": article.date,
+    "author": { "@type": "Organization", "name": "Culture & Business", "url": siteUrl },
+    "publisher": { "@type": "Organization", "name": "Culture & Business", "url": siteUrl },
+    "url": articleUrl,
+    "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
+    "keywords": article.tags.join(", "),
+    "articleSection": article.category,
+    "inLanguage": "ja",
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": siteUrl },
+      { "@type": "ListItem", "position": 2, "name": "記事一覧", "item": `${siteUrl}/articles` },
+      { "@type": "ListItem", "position": 3, "name": article.category, "item": `${siteUrl}/categories/${encodeURIComponent(article.category)}` },
+      { "@type": "ListItem", "position": 4, "name": article.title, "item": articleUrl },
+    ],
+  };
+
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-9">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-14">
 
@@ -154,5 +193,6 @@ export default async function ArticlePage({ params }: Props) {
         </aside>
       </div>
     </div>
+    </>
   );
 }

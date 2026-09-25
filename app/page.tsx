@@ -4,6 +4,25 @@ import { getAllArticles } from "@/lib/articles";
 
 const categories = ["歴史", "美術"];
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://culture-and-business.vercel.app";
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Culture & Business",
+  "url": siteUrl,
+  "description": "歴史と美術の知恵をビジネスに活かす。時代を超えた洞察で、現代の経営課題を読み解くメディア。",
+  "inLanguage": "ja",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${siteUrl}/search?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function Home() {
   const articles = getAllArticles();
   const featured = articles.find((a) => a.featured) || articles[0];
@@ -12,6 +31,7 @@ export default function Home() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
       {/* Hero */}
       {featured && <ArticleCard article={featured} variant="featured" />}
 

@@ -7,8 +7,9 @@ import SearchForm from "@/components/SearchForm";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "記事を検索 | Culture & Business",
+  title: "記事を検索",
   description: "Culture & Businessの記事をキーワードで検索できます。",
+  robots: { index: false, follow: true },
 };
 
 interface Props {
